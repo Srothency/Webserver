@@ -1,20 +1,17 @@
 {% extends "sroth/base.html" %}
 {% load static %}
 {% block content %}
-    <h1>Apps</h1>
-    {% for app in apps %}
     <article class="media content-section">
         <div class="media-body">
             <h2><a class="article-title" href="{% url 'app_detail' app.id %}">{{ app.name }}</a></h2>
             <p class="article-content">{{ app.description }}</p>
 
-            {% if app.name == "Chart App" %}
-                <canvas id="myChart"></canvas>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <script src="{% static 'sroth/js/ChartApp.js' %}"></script>
-            {% endif %} 
+        {% if app.name == "Chart App" %}
+            <canvas id="myChart"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="{% static 'sroth/js/ChartApp.js' %}"></script>
+        {% endif %} 
 
         </div>
-    </article>
-    {% endfor %}
+    </article> 
 {% endblock content %}
